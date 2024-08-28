@@ -178,13 +178,13 @@ mkdir -p `pwd`/llmstudio_mnt
 # make sure to pull latest image if you still have a prior version cached
 docker pull gcr.io/vorvan/h2oai/h2o-llmstudio:nightly
 
-# run the container
+# run the container ** Windows
 docker run \
-    --runtime=nvidia \
+    --gpus=all \
     --shm-size=64g \
     --init \
     --rm \
-    --it \
+    -it \
     -u `id -u`:`id -g` \
     -p 10101:10101 \
     -v `pwd`/llmstudio_mnt:/home/llmstudio/mount \
